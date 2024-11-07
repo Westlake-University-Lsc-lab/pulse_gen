@@ -6,7 +6,7 @@ def generate_waveform(frequency, height1, height2, time_diff, pulse_width1, puls
     period = 1 / frequency  # Period in seconds
     total_time = period * 1e6  # Convert to microseconds
     
-    sample_rate = 5 / 0.001  # 1 sample per 0.001 microsecond (1/1000 ns)
+    sample_rate = 1 / 0.001  # 1 sample per 0.001 microsecond (1/1000 ns)
     time_array = np.arange(0, total_time, 1/sample_rate)  # Time in microseconds
     waveform = np.full_like(time_array, offset)
     
