@@ -27,8 +27,8 @@ frequency = float(input("Enter pulse frequency (in Hz): "))
 height1 = float(input("Enter first pulse height (in V): "))
 height2 = float(input("Enter second pulse height (in V): "))
 time_diff = float(input("Enter time difference between two pulses (in us): "))
-offset = 0.9
-amp = 3
+offset = 0
+amp = max(height1-offset,height2-offset)
 dlength = int(1e9 / frequency)
 
 # Get pulse widths with default values
