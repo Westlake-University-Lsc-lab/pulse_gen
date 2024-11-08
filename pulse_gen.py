@@ -60,14 +60,20 @@ header = [
     "",
     "",
     "",
+    "",
 ]
 
 # Prepare DataFrame with integer xpos and waveform values
-xpos = np.arange(len(time_array))
+xpos = np.arange(1, len(time_array) + 1)
 waveform_data = pd.DataFrame({'xpos': xpos, 'value': waveform})
 
 # Create filename
-filename = f"waveform_{frequency}Hz_{height1}V_{height2}V_{time_diff}us_{pulse_width1}ns_{pulse_width2}us.csv"
+filename = (
+    f"{round(frequency)}Hz_"
+    f"{str(round(height1, 1)).replace('.', 'p')}V_"
+    f"{str(round(height2, 1)).replace('.', 'p')}V_"
+    f"{round(time_diff)}us_{round(pulse_width1)}ns_{round(pulse_width2)}us.csv"
+)
 
 # Save to CSV with header
 with open(filename, 'w') as f:
